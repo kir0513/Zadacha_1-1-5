@@ -18,8 +18,7 @@ public class Main {
         System.out.println("создали таблицу");
 
         //создаем  4 usera
-        //User user1 = new User("Kirill1", "Semin1", (byte) 41);
-        //service.saveUser(user1.getName(), user1.getLastName(), user1.getAge());
+
         User user1 = new User("Kirill1", "Semin1", (byte) 41);
         User user2 = new User("Kirill2", "Semin2", (byte) 42);
         User user3 = new User("Kirill3", "Semin3", (byte) 43);
@@ -29,7 +28,8 @@ public class Main {
         userList.add(user2);
         userList.add(user3);
         userList.add(user4);
-        //сохраняем в бд
+        System.out.println("Создали лист");
+        //сохраняем в бд и выводим в консоль
         for (User element : userList) {
             service.saveUser(element.getName(), element.getLastName(), element.getAge());
             System.out.println("User с именем - " + element.getName() + " добавлен в базу данных");
@@ -45,8 +45,8 @@ public class Main {
         //удаление таблицы
         service.dropUsersTable();
         System.out.println("Удалили таблицу");
-      /*  try {
-            Util.connection.close();
+        try {
+            Util.connectionJDBC.close();
             System.out.println("Соединение закрыто");
         } catch (SQLException e) {
             System.out.println("Соединение не закрыто");
@@ -54,7 +54,8 @@ public class Main {
         }
         Util.sessionFactory.close();
         System.out.println("Закрыли");
-*/
+
     }
+
 }
 

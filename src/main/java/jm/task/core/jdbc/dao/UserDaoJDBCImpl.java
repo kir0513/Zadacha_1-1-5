@@ -42,14 +42,42 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() {
-       try {
+        /*try {
+            Util.connection.setAutoCommit(true);
+            String sqlQuery = "drop table if exists " + Util.dbName + "." + Util.dbTableName;
+            PreparedStatement preparedStatement = Util.connection.prepareStatement(sqlQuery);
+            preparedStatement.executeUpdate();
+            Util.connection.commit();
+        } catch (SQLException e) {
+            try {
+                Util.connection.rollback();
+                Util.connection.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            throw new RuntimeException("Error when deleting a table");
+        }
+        finally {
+            try {
+                Util.connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                throw new RuntimeException("Error setAutoCommit(true)");
+            }
+        }
+*/
+        try {
+            //Util.connection.setAutoCommit(false);
             Util.connectionJDBC.setAutoCommit(false);
             String sqlQuery = "drop table if exists " + Util.dbName + "." + Util.dbTableName;
+            //PreparedStatement preparedStatement = Util.connection.prepareStatement(sqlQuery);
             PreparedStatement preparedStatement = Util.connectionJDBC.prepareStatement(sqlQuery);
             preparedStatement.executeUpdate();
+            //Util.connection.commit();
             Util.connectionJDBC.commit();
         } catch (SQLException e) {
             try {
+                //Util.connection.rollback();
+                //Util.connection.close();
                 Util.connectionJDBC.rollback();
                 Util.connectionJDBC.close();
             } catch (SQLException ex) {
@@ -59,6 +87,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
         finally {
             try {
+                //Util.connection.setAutoCommit(true);
                 Util.connectionJDBC.setAutoCommit(true);
             } catch (SQLException e) {
                 throw new RuntimeException("Error setAutoCommit(true)");
