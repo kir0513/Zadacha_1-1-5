@@ -42,29 +42,6 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() {
-        /*try {
-            Util.connection.setAutoCommit(true);
-            String sqlQuery = "drop table if exists " + Util.dbName + "." + Util.dbTableName;
-            PreparedStatement preparedStatement = Util.connection.prepareStatement(sqlQuery);
-            preparedStatement.executeUpdate();
-            Util.connection.commit();
-        } catch (SQLException e) {
-            try {
-                Util.connection.rollback();
-                Util.connection.close();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
-            throw new RuntimeException("Error when deleting a table");
-        }
-        finally {
-            try {
-                Util.connection.setAutoCommit(true);
-            } catch (SQLException e) {
-                throw new RuntimeException("Error setAutoCommit(true)");
-            }
-        }
-*/
         try {
             //Util.connection.setAutoCommit(false);
             Util.connectionJDBC.setAutoCommit(false);

@@ -44,7 +44,7 @@ public class Main {
         System.out.println("Очистили таблицу");
         //удаление таблицы
         service.dropUsersTable();
-        System.out.println("Удалили таблицу");
+
         try {
             Util.connectionJDBC.close();
             System.out.println("Соединение закрыто");
