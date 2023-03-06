@@ -34,54 +34,27 @@ public class Main {
             service.saveUser(element.getName(), element.getLastName(), element.getAge());
             System.out.println("User с именем - " + element.getName() + " добавлен в базу данных");
         }
+        System.out.println("Сохранили пользователей в БД");
         //получение всех user
         List<User> select = service.getAllUsers();
         select.stream().forEach(System.out::println);
+        System.out.println("Получили пользователей");
         //очистка таблицы
         service.cleanUsersTable();
+        System.out.println("Очистили таблицу");
         //удаление таблицы
         service.dropUsersTable();
-        try {
+        System.out.println("Удалили таблицу");
+      /*  try {
             Util.connection.close();
+            System.out.println("Соединение закрыто");
         } catch (SQLException e) {
+            System.out.println("Соединение не закрыто");
             throw new RuntimeException(e);
         }
-
-
-
-/*
-        //создаем  4 usera
-        User user1 = new User("Kirill1", "Semin1", (byte) 41);
-        User user2 = new User("Kirill2", "Semin2", (byte) 42);
-        User user3 = new User("Kirill3", "Semin3", (byte) 43);
-        User user4 = new User("Kirill4", "Semin4", (byte) 44);
-        List<User> userList = new ArrayList<>();
-        userList.add(user1);
-        userList.add(user2);
-        userList.add(user3);
-        userList.add(user4);
-        //сохраняем в бд
-        for (User element : userList) {
-            service.saveUser(element.getName(), element.getLastName(), element.getAge());
-            System.out.println("User с именем - " + element.getName() + " добавлен в базу данных");
-        }
-        //получение всех user
-        List<User> select = service.getAllUsers();
-        select.stream().forEach(System.out::println);
-        //очистка таблицы
-        service.cleanUsersTable();
-        //удаление таблицы
-        service.dropUsersTable();
-        try {
-            Util.connection.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        Util.sessionFactory.close();
+        System.out.println("Закрыли");
 */
-
-            Util.sessionFactory.close();
-
-
     }
 }
 

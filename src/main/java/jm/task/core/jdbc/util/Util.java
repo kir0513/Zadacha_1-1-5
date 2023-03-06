@@ -33,19 +33,6 @@ public class Util {
     private static final String dbUserPassword = "123";
 
     public static Connection connection;
-//    static {
-//        try{
-//            Class.forName("org.MySQL.Driver");
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            connection = DriverManager.getConnection(dbUrlConnection, dbUserName, dbUserPassword);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     public static Connection connectionJDBC = getConnectionJDBC();
 
         private static Connection getConnectionJDBC() {

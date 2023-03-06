@@ -42,7 +42,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() {
-      /* try {
+       try {
             Util.connectionJDBC.setAutoCommit(false);
             String sqlQuery = "drop table if exists " + Util.dbName + "." + Util.dbTableName;
             PreparedStatement preparedStatement = Util.connectionJDBC.prepareStatement(sqlQuery);
@@ -65,7 +65,7 @@ public class UserDaoJDBCImpl implements UserDao {
             }
         }
 
-       */
+
     }
 
     public void saveUser(String name, String lastName, byte age) {
