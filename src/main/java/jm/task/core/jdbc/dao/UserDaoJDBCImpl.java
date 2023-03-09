@@ -15,6 +15,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void createUsersTable() {
+        /*
         try {
             Util.connectionJDBC.setAutoCommit(false);
             String sqlQuery = "create table if not exists " + Util.dbName + "." + Util.dbTableName +
@@ -39,9 +40,11 @@ public class UserDaoJDBCImpl implements UserDao {
                 throw new RuntimeException("Error setAutoCommit(true)");
             }
         }
+        */
     }
 
     public void dropUsersTable() {
+        /*
         try {
             //Util.connection.setAutoCommit(false);
             Util.connectionJDBC.setAutoCommit(false);
@@ -70,11 +73,12 @@ public class UserDaoJDBCImpl implements UserDao {
                 throw new RuntimeException("Error setAutoCommit(true)");
             }
         }
-
+*/
 
     }
 
     public void saveUser(String name, String lastName, byte age) {
+        /*
         try {
             Util.connectionJDBC.setAutoCommit(false);
             String sqlQuery = "INSERT INTO " + Util.dbName + "." + Util.dbTableName
@@ -101,9 +105,12 @@ public class UserDaoJDBCImpl implements UserDao {
                 throw new RuntimeException("Error setAutoCommit(true)");
             }
         }
+
+         */
     }
 
     public void removeUserById(long id) {
+        /*
         try {
             Util.connectionJDBC.setAutoCommit(false);
             String sqlQuery = "DELETE FROM " + Util.dbName + "." + Util.dbTableName + " WHERE id = ?";
@@ -127,9 +134,12 @@ public class UserDaoJDBCImpl implements UserDao {
                 throw new RuntimeException("Error setAutoCommit(true)");
             }
         }
+
+         */
     }
 
     public List<User> getAllUsers() {
+        /*
         List<User> userList = new ArrayList<>();
         try {
             Util.connectionJDBC.setAutoCommit(true);
@@ -149,11 +159,14 @@ public class UserDaoJDBCImpl implements UserDao {
                 throw new RuntimeException(ex);
             }
             throw new RuntimeException("Error when select from table");
-        }
-        return userList;
+        }*/
+        return null;
+
+
     }
 
     public void cleanUsersTable() {
+        /*
         try {
             Util.connectionJDBC.setAutoCommit(false);
             String sqlQuery = "DELETE FROM " + Util.dbName + "." + Util.dbTableName;
@@ -176,5 +189,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 throw new RuntimeException("Error setAutoCommit(true)");
             }
         }
+
+         */
     }
 }

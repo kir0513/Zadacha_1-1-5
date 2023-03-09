@@ -8,7 +8,7 @@ import jm.task.core.jdbc.util.Util;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+//если не работает, см. настройку с базой данных
 public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь

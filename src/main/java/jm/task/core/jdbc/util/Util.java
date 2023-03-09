@@ -15,6 +15,7 @@ public class Util {
             .addProperties(getPropertiesSessionFactory())
             .addAnnotatedClass(User.class)
             .buildSessionFactory();
+
     private static Properties getPropertiesSessionFactory() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.connection.url", dbUrlConnection);
@@ -26,7 +27,7 @@ public class Util {
     }
 
     public static final String dbName = "kata_preproject";
-    public static final String dbTableName = "users";
+    public static final String dbTableName = "kata_preproject";
     private static final String dbUrlConnection = "jdbc:mysql://localhost:3306/kata_preproject";
 
     private static final String dbUserName = "kir";
@@ -35,15 +36,16 @@ public class Util {
     public static Connection connection;
     public static Connection connectionJDBC = getConnectionJDBC();
 
-        private static Connection getConnectionJDBC() {
-            try {
-                Connection connection = DriverManager.getConnection(dbUrlConnection, dbUserName, dbUserPassword);
-           connection.setAutoCommit(false);
-                return connection;
-            } catch (SQLException e) {
-                System.out.println("Error connect with database");
-                throw new RuntimeException(e);
-            }
+    private static Connection getConnectionJDBC() {
+        try {
+            Connection connection = DriverManager.getConnection(dbUrlConnection, dbUserName, dbUserPassword);
+            connection.setAutoCommit(false);
+            System.out.println("Есть связь");
+            return connection;
+        } catch (SQLException e) {
+            System.out.println("Error connect with database");
+            throw new RuntimeException(e);
         }
+    }
 
 }
