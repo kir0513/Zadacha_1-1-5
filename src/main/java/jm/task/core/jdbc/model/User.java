@@ -3,26 +3,25 @@ package jm.task.core.jdbc.model;
 import javax.persistence.*;
 
 @Entity //эта аннотация перед классом укажет Hibernate, что это специальный класс, объекты которого нужно хранить в базе данных.
-@Table //задает имя таблицы в базе, с которой будет связан данный класс.
-        (name = "users")
+@Table(name = "users") //задает имя таблицы в базе, с которой будет связан данный класс.
 public class User {
-    @Id////Каждая Entity-сущность в Hibernate должна иметь поле, которое будет первичным ключом: содержать уникальное значение для всех объектов данного класса
-    @GeneratedValue(strategy = GenerationType.IDENTITY)/* можно присваивать id твоим новым объектам самостоятельно,
+    @Id //Каждая Entity-сущность в Hibernate должна иметь поле, которое будет первичным ключом: содержать уникальное значение для всех объектов данного класса
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* можно присваивать id твоим новым объектам самостоятельно,
     или отдать это на откуп Hibernate. Для того чтобы Hibernate лучше понимал, как присваивать ID твоим объектам, у него есть
     @GeneratedValue. Этой аннотацией обычно помечается то же поле, что и аннотацией @Id. У нее есть 4 возможных стратегии
     присвоения ID: AUTO, IDENTITY, SEQUENCE, TABLE
     */
-    @Column (name = "id")//сопоставляет поля данных  источника и связанных с ними полей данных в другом месте назначения.
+    @Column(name = "id") //сопоставляет поля данных  источника и связанных с ними полей данных в другом месте назначения.
     //пишется не только у полей, но и методов: у геттеров или сеттеров
     private Long id;
 
-    @Column (name = "name")
+    @Column(name = "name")
     private String name;
 
-    @Column (name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column (name = "age")
+    @Column(name = "age")
     private Byte age;
 
     public User() {
